@@ -1,0 +1,85 @@
+<div class="container" 
+style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; margin: 0 auto;">
+    <form  *ngIf="!isSuccessful"
+    name="addProd"
+    (ngSubmit)="f.form.valid && onSave()"
+    #f="ngForm" >
+    <div class="form-group row col-md-12">
+  <!--   <div class="form-group col-md-6">
+    <label><strong>ID : </strong></label>
+    <input  type="text"  class="form-control" id="numero" 
+    name="id"
+    [(ngModel)]="addProd.id"
+    required
+    minlength="3"
+    maxlength="20"
+    #username="ngModel">
+    </div> -->
+    <div class="form-group col-md-6">
+    <label><strong>Name : </strong></label>
+    <input  type="text"  class="form-control" id="numero" 
+    name="name"
+    [(ngModel)]="addProd.name"
+    required
+    minlength="3"
+    maxlength="20"
+    #username="ngModel">
+    </div>  
+    <div class="form-group col-md-6">
+    <label><strong>Price : </strong></label>
+    <input  type="text"  class="form-control" id="numero" 
+    name="price"
+    [(ngModel)]="addProd.price"
+    required
+    minlength="3"
+    maxlength="20"
+    #username="ngModel">
+    </div>  
+    <div class="form-group col-md-6">
+    <label><strong>Quantity : </strong></label>
+    <input  type="text"  class="form-control" id="numero"
+    name="quantity"
+    [(ngModel)]="addProd.quantity"
+    required
+    minlength="1"
+    maxlength="20"
+    #username="ngModel">
+    </div>  
+    <div class="form-group col-md-6">
+    <label><strong>Designation: </strong></label>
+    <input  type="text"  class="form-control" id="numero" 
+    name="designation"
+    [(ngModel)]="addProd.designation"
+    required
+    minlength="3"
+    maxlength="50"
+    #username="ngModel">
+    </div>  
+    <div class="form-group col-md-6">
+    <label><strong>Image : </strong></label>
+    <label class="image-upload-container btn btn-bwm">
+      <input #imageInput
+             type="file"
+             accept="image/*"
+             (change)="processFile(imageInput)">
+    </label>
+    <input  type="text"  class="form-control" id="numero" 
+    name="image"
+    [(ngModel)]="addProd.urlImage"
+    required
+    minlength="3"
+    maxlength="20"
+    #username="ngModel">
+    </div>  
+    
+    <div class="form-group" >
+        <button style="text-align: center; width: 45%; margin-left:18px;margin-top:33px;" type="submit" class="btn btn-dark"><i class="fa fa-database" (click)="onSave()"></i>Save</button>
+      
+        </div>
+    </div>
+    
+    <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+    Signup failed!<br />{{ errorMessage }}
+    </div>
+    </form>   
+</div>

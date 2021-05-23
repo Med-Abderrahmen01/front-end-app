@@ -1,0 +1,108 @@
+<h3 style="text-align: center;">Demmander Une Service Livraison</h3> 
+  <form  *ngIf="!isSuccessful"
+          name="form"
+         (ngSubmit)="f.form.valid && onCommand()"
+         #f="ngForm" >
+  <!-- <input  type="text"  class="form-control" id="lib_client" placeholder="donne une designation de votre command a livre"> -->
+  <div class="form-group row col-md-12">
+  <div class="form-group col-md-6">
+      <label><strong>Nom Client: </strong></label>
+      <input  type="text"  class="form-control" id="numero" 
+      name="name"
+      [(ngModel)]="form.name"
+      required
+      minlength="3"
+      maxlength="20"
+      #username="ngModel">
+  </div>
+  <div class="form-group col-md-6">
+    <label><strong>Email Client : </strong></label>
+    <input  type="text"  class="form-control" id="numero" 
+        name="email"
+        [(ngModel)]="form.email"
+        required
+        minlength="3"
+        maxlength="20"
+        #username="ngModel">
+</div>  
+<div class="form-group col-md-6">
+    <label><strong>Phone : </strong></label>
+    <input  type="text"  class="form-control" id="numero" 
+        name="phone"
+        [(ngModel)]="form.phone"
+        required
+        minlength="3"
+        maxlength="20"
+        #username="ngModel">
+</div>  
+<div class="form-group col-md-6">
+    <label><strong>Address Client : </strong></label>
+    <input  type="text"  class="form-control" id="numero"
+        name="address"
+        [(ngModel)]="form.address"
+        required
+        minlength="3"
+        maxlength="20"
+        #username="ngModel">
+</div>  
+<div class="form-group col-md-6">
+    <label><strong>Nom Designation: </strong></label>
+    <input  type="text"  class="form-control" id="numero" 
+    name="nameCom"
+    [(ngModel)]="form.nameCom"
+    required
+    minlength="3"
+    maxlength="20"
+    #username="ngModel">
+</div>  
+<div class="form-group col-md-6">
+    <label><strong>Phone Designation : </strong></label>
+    <input  type="text"  class="form-control" id="numero" 
+        name="phoneCom"
+        [(ngModel)]="form.phoneCom"
+        required
+        minlength="3"
+        maxlength="20"
+        #username="ngModel">
+</div>  
+<div class="form-group col-md-12">
+    <label><strong>Designation commande : </strong></label>
+    <input  type="text"  class="form-control" id="numero" 
+        name="designation"
+        [(ngModel)]="form.designation"
+        required
+        minlength="3"
+        maxlength="50"
+        #username="ngModel" required>
+</div> 
+  <!-- <div class="col-md-6 form-group">
+        <label>Date</label>
+      <input  type="date" class="form-control" id="date_comm">
+  </div>
+ 
+  <div class="col-md-6">
+      <label>Libelle</label>
+      <input class="form-control" id="libelle">
+  </div> -->
+  </div>
+  <table class="table table-borderless">
+    <thead class="thead-light">
+      <th style="text-align: center;">Passer votre Commende
+        <button type="submit" class="btn btn-outline-dark"><i class="fa fa-database" (click)="onCommand()"></i>Envoyer</button>
+        <button type="submit" class="btn btn-outline-dark ml-2"><i class="fa fa-minus-square" ></i>Annuler</button>
+      </th>
+    
+    </thead>
+    
+  </table>
+ 
+  <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+    Signup failed!<br />{{ errorMessage }}
+  </div>
+  </form> 
+  <div class="alert alert-success" *ngIf="isSuccessful">
+    Votre Commende est en cour de traitement.... 
+      <a class="btn btn-sm btn-success text-white" ><i class="fa fa-plus"></i>Details </a>
+   </div>
+  
+   

@@ -1,0 +1,87 @@
+  <form *ngIf="!isSuccessful"
+          name="service"
+         (ngSubmit)="onSave()"
+         #f="ngForm" >
+  <div class="form-group row col-md-12">
+  <div class="form-group col-md-6">
+      <label><strong>Nom Client: </strong></label>
+      <input  type="text"  class="form-control" id="numero" 
+      name="name"
+      [(ngModel)]="service.name"
+      required
+      minlength="3"
+      maxlength="20"
+      #username="ngModel">
+  </div>
+  <div class="form-group col-md-6">
+    <label><strong>Email Client :</strong></label>
+    <input  type="text"  class="form-control" id="numero" 
+        name="email"
+        [(ngModel)]="service.email"
+        required
+        minlength="3"
+        maxlength="20"
+        #username="ngModel">
+</div>  
+<div class="form-group col-md-6">
+    <label><strong>Phone : </strong></label>
+    <input  type="text"  class="form-control" id="numero" 
+        name="phone"
+        [(ngModel)]="service.phone"
+        required
+        minlength="3"
+        maxlength="20"
+        #username="ngModel">
+</div>  
+<div class="form-group col-md-6">
+    <label><strong>Address Client :  </strong></label>
+    <input  type="text"  class="form-control" id="numero"
+        name="address"
+        [(ngModel)]="service.address"
+        required
+        minlength="3"
+        maxlength="20"
+        #username="ngModel">
+</div>  
+<div class="form-group col-md-6">
+    <label><strong>Nom Designation: </strong></label>
+    <input  type="text"  class="form-control" id="numero" 
+    name="nameCom"
+    [(ngModel)]="service.nameCom"
+    required
+    minlength="3"
+    maxlength="20"
+    #username="ngModel">
+</div>  
+<div class="form-group col-md-6">
+    <label><strong>Phone Destination : </strong></label>
+    <input  type="text"  class="form-control" id="numero" 
+        name="phoneCom"
+        [(ngModel)]="service.phoneCom"
+        required
+        minlength="3"
+        maxlength="20"
+        #username="ngModel">
+</div>  
+<div class="form-group col-md-12">
+    <label><strong>Designation commande : </strong></label>
+    <input  type="text"  class="form-control" id="numero" 
+        name="designation"
+        [(ngModel)]="service.designation"
+        required
+        minlength="3"
+        maxlength="50"
+        #username="ngModel" required>
+</div> 
+</div>
+  
+  <div class="form-group" style="margin-left: 50px;" >
+    <button type="submit" class="btn btn-outline-dark"><i class="fa fa-database" (click)="onSave()"></i>Save</button>
+    <button type="submit" class="btn btn-outline-dark ml-2"><i class="fa fa-minus-square"></i>Annuler</button>
+
+  </div>
+  </form> 
+  <div class="alert alert-success" *ngIf="isSuccessful">
+    Votre Commende est en cour de traitement....  </div>
+  
+   

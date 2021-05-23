@@ -1,0 +1,102 @@
+<nav class="navbar navbar-expand-lg navbar-dark " style="background-color:#1a237e ;">
+  <a class="navbar-brand" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" routerLink="/">
+    <img width="5%" src="/assets/images/logo.png">BRAWA-LIVRAISON</a>
+  <!-- <a href="#" class="navbar-brand">LIVRAISON</a> -->
+  <button #navbarToggler class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" (click)="isShown = !isShown" [attr.aria-expanded]="isShown"  aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" style="font-family: 'Courier New', Courier, monospace; font-size: 19px;" [ngClass]="{ 'show': isShown }" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      <li class="nav-item active">
+        <a href="/home" class="nav-link" (click)="isShown = false" routerLink="home">Acceuil <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a href="/product" class="nav-link" (click)="isShown = false" routerLink="home">Produit</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #1a237e;">
+          <li><a href="/ser-livraison" class="nav-link" (click)="isShown = false" routerLink="ser-livraison" >Client</a></li>
+          <li><a class="nav-link" href="/ser-societe" routerLink="ser-societe">Societe</a></li>
+          <li><a class="nav-link" href="#">service ONS</a></li>
+        </ul>
+
+
+      <li class="nav-item" *ngIf="showAdminBoard">
+        <a href="/admin" class="nav-link" (click)="isShown = false" routerLink="admin">AdminBoard</a>
+      </li>
+      <li class="nav-item" *ngIf="showModeratorBoard">
+        <a href="/mod" class="nav-link" (click)="isShown = false" routerLink="mod">Partner Board</a>
+      </li>
+      <li class="nav-item">
+        <a href="/user" class="nav-link" (click)="isShown = false" *ngIf="isLoggedIn" routerLink="user">User</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+        <a href="/register" class="nav-link" (click)="isShown = false" routerLink="register">
+          <i class="fa fa-user-plus" aria-hidden="true"></i>
+           SignUp</a>
+      </li>
+      <li class="nav-item">
+        <a href="/login" class="nav-link" (click)="isShown = false" routerLink="login">
+          <span class="glyphicon glyphicon-log-in"></span>
+          Login <i class="fa fa-sign-in" aria-hidden="true"></i></a>
+      </li>
+    </ul>
+ 
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <li class="nav-item">
+        <a href="/profile" class="nav-link" (click)="isShown = false" routerLink="profile">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          {{ username }}</a>
+      </li> 
+      <li class="nav-item">
+        <a href class="nav-link" (click1)="isShown = false" (click)="logout()">
+           LogOut <i class="fa fa-sign-out" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+ 
+</nav>
+<!--carasol ang-->
+<div class="container-fluid">
+  <ngb-carousel *ngIf="images">
+    <ng-template ngbSlide>
+      <div class="wrapper">
+        <img [src]="images[0]" alt="Random first slide" class="imgCar">
+      </div>
+      <div class="carousel-caption">
+        <h3>Let's Go To US </h3>
+        <p> You Can Command Every Time </p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="wrapper">
+        <img [src]="images[1]" alt="Random second slide" class="imgCar">
+      </div>
+      <div class="carousel-caption">
+        <h3>Quickly Services</h3>
+        <p> We Delivry Very Quickly 7/7 Days </p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="wrapper">
+        <img [src]="images[2]"  alt="Random third slide" class="imgCar">
+      </div>
+      <div class="carousel-caption">
+        <h3>Satisfy With US</h3>
+        <p>Our Goal is To Satisfy You</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+  </div>
+<!--carasol ang-->
+<div class="container">
+</div>
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>
